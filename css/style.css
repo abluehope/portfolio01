@@ -147,13 +147,41 @@ address {
   gap: 30px;
 }
 .header .inner .gnb > ul li {
-  line-height: 100px;
+  position: relative;
   white-space: nowrap;
   word-break: keep-all;
 }
 .header .inner .gnb > ul li a {
   font-size: 18px;
   font-weight: 500;
+  line-height: 100px;
+}
+.header .inner .gnb > ul li:hover .sub {
+  opacity: 1;
+  visibility: visible;
+}
+.header .inner .gnb > ul .sub {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: #ffffff;
+  padding: 15px 0;
+  width: 140px;
+  text-align: center;
+  border: 1px solid #dddddd;
+  border-radius: 24px;
+  box-shadow: 15px 20px 29px 0px rgba(0, 0, 0, 0.13);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+.header .inner .gnb > ul .sub li a {
+  font-size: 16px;
+  line-height: 40px;
+}
+.header .inner .gnb > ul .sub li a:hover {
+  color: #c27b61;
 }
 .header .mobile_btn {
   display: none;
