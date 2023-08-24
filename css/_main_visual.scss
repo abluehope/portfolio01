@@ -1,0 +1,202 @@
+.main_visual {
+  position: relative;
+  .main_slide {
+    .itm {
+      position: relative;
+      height: 800px;
+    }
+    .main_slide_hb {
+      background: url(../images/main_visual_01.jpg) no-repeat top center/cover;
+    }
+    .main_slide_hk {
+      background: url(../images/main_visual_02.jpg) no-repeat top center/cover;
+    }
+    .slogan {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+
+      h2 {
+        position: relative;
+        font-size: 48px;
+        font-weight: 700;
+        color: $color-white;
+
+        &::after {
+          content: "";
+          display: block;
+          width: 160px;
+          height: 2px;
+          margin: 24px 0 24px 0;
+          background: $color-white;
+        }
+      }
+
+      p {
+        width: 350px;
+        font-size: 18px;
+        font-weight: 300;
+        color: $color-white;
+        line-height: 24px;
+      }
+    }
+  }
+
+  .arrows {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 1440px;
+    width: 100%;
+    padding: 0 15px;
+    z-index: 999;
+
+    .material-symbols-outlined {
+      font-size: 100px;
+      font-weight: 100;
+    }
+
+    .left {
+      position: absolute;
+      left: 0;
+      color: rgba($color: $color-white, $alpha: 0.5);
+      cursor: pointer;
+      transition: 0.5s;
+
+      &:hover {
+        color: rgba($color: $color-white, $alpha: 1);
+      }
+    }
+
+    .right {
+      position: absolute;
+      right: 0;
+      color: rgba($color: $color-white, $alpha: 0.5);
+      cursor: pointer;
+      transition: 0.5s;
+
+      &:hover {
+        color: rgba($color: $color-white, $alpha: 1);
+      }
+    }
+  }
+
+  .dots {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    position: absolute;
+    top: 65%;
+    left: 21.5%;
+    transform: translate(-50%, -50%);
+    z-index: 998;
+
+    li {
+      position: relative;
+      cursor: pointer;
+      span {
+        color: $color-white;
+
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: -60%;
+          left: 0;
+          width: 50px;
+          height: 2px;
+          background: #777;
+        }
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -60%;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #fff;
+      }
+
+      &.on {
+        &::after {
+          width: 50px;
+          transition: 6s;
+        }
+      }
+    }
+  }
+
+  @include res() {
+    .main_slide {
+      .itm {
+        height: 520px;
+      }
+      .main_slide_hb {
+        background: url(../images/main_visual_01.jpg) no-repeat 65% top/cover;
+        p {
+          width: auto;
+        }
+      }
+      .main_slide_hk {
+        background: url(../images/main_visual_02.jpg) no-repeat 65% top/cover;
+      }
+      .slogan {
+        position: absolute;
+        top: 75%;
+        text-shadow: 0 0 3px #000;
+        h2 {
+          font-size: 32px;
+          font-weight: 700;
+          color: $color-white;
+
+          &::after {
+            content: "";
+            display: block;
+            width: 160px;
+            height: 2px;
+            margin: 16px 0 16px 0;
+            background: $color-white;
+            box-shadow: 0 0 3px #000;
+          }
+        }
+
+        p {
+          font-size: 16px;
+          font-weight: 300;
+          color: $color-white;
+          line-height: 22px;
+        }
+      }
+    }
+
+    .arrows {
+      display: none;
+    }
+
+    &:hover {
+      .arrows {
+        .left {
+          color: rgba($color: $color-white, $alpha: 1);
+        }
+        .right {
+          color: rgba($color: $color-white, $alpha: 1);
+        }
+      }
+    }
+
+    .dots {
+      top: 58%;
+      left: 53px;
+
+      li {
+        span {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

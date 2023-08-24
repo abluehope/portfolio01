@@ -1,0 +1,51 @@
+.main_hanbok_sct {
+  background-image: url(../images/section_05_bg.jpg);
+  background-repeat: no-repeat;
+  background-position: 100% 15%;
+  background-size: 45%;
+  background-attachment: fixed;
+  .inner {
+    padding: 120px 15px;
+    h2 {
+      margin: 0 0 40px 0;
+      font-size: 40px;
+      font-weight: 700;
+      width: 600px;
+      line-height: 46px;
+    }
+    p {
+      margin: 0 0 16px 0;
+      width: 400px;
+      line-height: 22px;
+    }
+  }
+
+  @include res() {
+    position: relative;
+    background-position: center top;
+    background-size: cover;
+
+    .inner {
+      position: relative;
+      padding: 120px 15px;
+      z-index: 998;
+      h2 {
+        width: auto;
+        font-size: 32px;
+        line-height: 38px;
+        color: $color-white;
+      }
+      p {
+        width: auto;
+        color: $color-white;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0 0 0 0;
+      background: rgba(0, 0, 0, 0.35);
+    }
+  }
+}

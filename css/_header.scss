@@ -1,0 +1,149 @@
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 999;
+
+  background: rgba($color: $color-white, $alpha: 0.5);
+  transition: 0.5s;
+
+  &.on {
+    background: $color-white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+
+    .gnb {
+      > ul {
+        display: flex;
+        gap: $size-gap;
+
+        li {
+          line-height: 100px;
+          white-space: nowrap;
+          word-break: keep-all;
+
+          a {
+            font-size: 18px;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+
+  .mobile_btn {
+    display: none;
+  }
+
+  @include res() {
+    .inner {
+      height: 80px;
+      h1 {
+        z-index: 1000;
+      }
+      .gnb {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        z-index: 999;
+
+        background: $color-white;
+        width: calc(100% - 90px);
+        height: 100vh;
+        padding: 150px 24px 0 24px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+        transition: 0.5s;
+
+        &.on {
+          left: 0;
+        }
+
+        > ul {
+          flex-direction: column;
+          gap: 0;
+
+          li {
+            line-height: 48px;
+            border-bottom: 1px solid $color-border;
+
+            a {
+              font-size: 18px;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+
+    .mobile_btn {
+      display: block;
+
+      position: fixed;
+      inset: 25px 30px auto auto;
+      z-index: 1000;
+      width: 30px;
+      height: 30px;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 14px 5px auto 5px;
+        height: 2px;
+        background: $color-body;
+
+        transition: 0.5s;
+      }
+
+      button {
+        border: none;
+        outline: none;
+        background: transparent;
+
+        &::before {
+          content: "";
+          inset: 7px 5px auto 5px;
+          position: absolute;
+          height: 2px;
+          background: $color-body;
+          opacity: 1;
+
+          transition: 0.5s;
+        }
+
+        &::after {
+          content: "";
+          inset: auto 5px 7px 5px;
+          position: absolute;
+          height: 2px;
+          background: $color-body;
+          opacity: 1;
+
+          transition: 0.5s;
+        }
+      }
+
+      &.on {
+        &::before {
+          transform: rotate(45deg);
+        }
+        &::after {
+          transform: rotate(-45deg);
+        }
+        button {
+          &::before,
+          &::after {
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+}

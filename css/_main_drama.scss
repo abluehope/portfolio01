@@ -1,0 +1,76 @@
+.main_drama {
+  position: relative;
+  padding: 120px 0 160px 0;
+  background: $color-bg;
+
+  .dots {
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    z-index: 998;
+    transform: translate(-50%, 0);
+
+    display: flex;
+    gap: 5px;
+
+    li {
+      width: 8px;
+      height: 8px;
+      border-radius: 10px;
+      background: rgba($color: $color-body, $alpha: 0.5);
+      cursor: pointer;
+      transition: width 0.5s;
+      span {
+        font-size: 0;
+      }
+      &.on {
+        width: 40px;
+        background: rgba($color: $color-body, $alpha: 1);
+      }
+    }
+  }
+  .arrows {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 1400px;
+    width: 100%;
+    padding: 0 15px;
+    z-index: 998;
+
+    .material-symbols-outlined {
+      font-size: 80px;
+      font-weight: 200;
+    }
+
+    .left {
+      position: absolute;
+      left: 0;
+      cursor: pointer;
+    }
+
+    .right {
+      position: absolute;
+      right: 0;
+      cursor: pointer;
+    }
+  }
+
+  @include res() {
+    .arrows {
+      top: 55%;
+      .left {
+        font-size: 56px;
+        background: rgba($color: $color-white, $alpha: 0.85);
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      }
+
+      .right {
+        font-size: 56px;
+        background: rgba($color: $color-white, $alpha: 0.85);
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      }
+    }
+  }
+}

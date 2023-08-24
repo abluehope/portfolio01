@@ -1,0 +1,124 @@
+.main_fashionshow {
+  position: relative;
+
+  @include res() {
+    overflow: hidden;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 120px;
+    left: -5%;
+    width: 300px;
+    height: 300px;
+    background: rgba($color: $color-main, $alpha: 0.6);
+    border-radius: 50%;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    background: $color-main;
+    border-radius: 50%;
+  }
+
+  @include res() {
+    &::before {
+      top: 25%;
+      left: 70%;
+      width: 150px;
+      height: 150px;
+    }
+    &::after {
+      top: 78%;
+      left: 8%;
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  .content_wrap {
+    display: flex;
+    gap: $size-gap;
+    width: calc((100% - 1440px) / 2 + 1300px);
+    margin: 0 0 0 auto;
+    .txt_box {
+      flex: 0 560px;
+
+      display: flex;
+      align-items: center;
+      .con {
+        h2 {
+          font-size: 40px;
+          font-weight: 700;
+          margin: 0 0 16px 0;
+        }
+
+        .desc {
+          margin: 0 0 24px 0;
+          font-weight: 400;
+          line-height: 22px;
+          width: 500px;
+          color: #666;
+        }
+
+        .btn {
+          display: inline-block;
+          margin: 0 0 50px 0;
+        }
+
+        .ctr {
+          margin: 0 0 0 -9px;
+          .material-symbols-outlined {
+            margin: 0 8px 0 0;
+            font-variation-settings: "FILL" 1;
+            font-size: 30px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .movie_box {
+      flex: 1;
+      min-height: 500px;
+
+      .mbYTP_wrapper {
+        border-radius: 250px 0 0 250px;
+      }
+    }
+  }
+  @include res() {
+    .content_wrap {
+      width: auto;
+      flex-direction: column;
+      gap: 0;
+      margin: 0;
+      .txt_box {
+        flex: 1;
+        padding: 0 15px;
+        .con {
+          h2 {
+            font-size: 32px;
+          }
+          .desc {
+            width: auto;
+            margin: 0 0 16px 0;
+          }
+          .btn {
+            margin: 0 0 24px 0;
+          }
+          .ctr {
+            margin: 0 0 16px -9px;
+          }
+        }
+      }
+      .movie_box {
+        min-height: 320px;
+        clip-path: none;
+      }
+    }
+  }
+}
